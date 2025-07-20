@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Poule Clicker 🐔</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      margin-top: 100px;
+    }
+    #counter {
+      font-size: 48px;
+      margin-bottom: 30px;
+    }
+    #poule {
+      cursor: pointer;
+      width: 200px;
+      transition: transform 0.1s;
+    }
+    #poule:active {
+      transform: scale(0.95);
+    }
+  </style>
+</head>
+<body>
+  <div id="counter">0</div>
+  <img id="poule" src="poule.png" alt="Poule" />
+  
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const socket = io();
+    const counter = document.getElementById('counter');
+    const poule = document.getElementById('poule');
+
+    socket.on('update', (count) => {
+      counter.textContent = count;
+    });
+
+    poule.addEventListener('click', () => {
+      socket.emit('click');
+    });
+  </script>
+</body>
+</html>
