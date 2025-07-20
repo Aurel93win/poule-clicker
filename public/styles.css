@@ -1,0 +1,60 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom, #fff9e6, #ffe3b3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+}
+
+h1 {
+  font-size: 3rem;
+  color: #d97904;
+  margin-bottom: 0.5em;
+  text-shadow: 1px 1px 2px #fff;
+}
+
+#counter {
+  font-size: 2.5rem;
+  color: #333;
+  background: #fff5d7;
+  padding: 10px 20px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+#chicken {
+  cursor: pointer;
+  width: 180px;
+  transition: transform 0.1s ease;
+}
+
+#chicken:active {
+  transform: scale(1.1);
+}
+
+.donate {
+  margin-top: 2rem;
+  font-size: 1.2rem;
+}
+
+.donate a {
+  color: #d97904;
+  text-decoration: none;
+  font-weight: bold;
+  border: 2px solid #d97904;
+  padding: 10px 15px;
+  border-radius: 8px;
+  background-color: #fff9e6;
+  transition: all 0.2s ease;
+}
+
+.donate a:hover {
+  background-color: #d97904;
+  color: white;
+}

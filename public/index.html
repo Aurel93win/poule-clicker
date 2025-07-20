@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Poule Clicker 🐔</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <h1>Chicken Click 🐔</h1>
+  <div id="counter">Chargement...</div>
+  <img src="poule.png" alt="Poule" id="chicken" />
+
+  <div class="donate">
+    ❤️ Soutiens le projet ici :  
+    <a href="https://ton-site-de-don.fr" target="_blank">Faire un don</a>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const socket = io();
+    const counter = document.getElementById('counter');
+    const chicken = document.getElementById('chicken');
+
+    chicken.addEventListener('click', () => {
+      socket.emit('click');
+    });
+
+    socket.on('update', (value) => {
+      counter.textContent = `Total de clics : ${value}`;
+    });
+  </script>
+</body>
+</html>
